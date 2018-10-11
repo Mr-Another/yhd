@@ -109,7 +109,7 @@ div{
     left: 5%;
     top: 20%;
     z-index: 100000;
-    opacity: 0;
+    display: none;
     transition: all 1s;
 }
 .letfTarget a{
@@ -291,7 +291,10 @@ div{
 }
 
 /*头部导航*/
-
+.hd_father{
+    width: 100%;
+    background-color: #fff;
+}
 .hd{
     width: 1228px;
     margin: 0 auto;
