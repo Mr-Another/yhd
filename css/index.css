@@ -607,6 +607,7 @@ div{
 }
 .list_warp li{
     float: left;
+    background-color: #fff;
 }
 .pro_name{
     width: 100px;
@@ -641,6 +642,10 @@ div{
     position: absolute;
     right: 20px;
     bottom: 15px;
+    transition: all 0.3s;
+}
+.pro_img:hover{
+    right: 25px;
 }
 .line{
     height: 70px;
@@ -754,6 +759,10 @@ div{
     position: absolute;
     right: 0;
     bottom: 0;
+    transition: all 0.3s;
+}
+.capbox img:hover{
+    right: 5px;
 }
 .cap{
     height: 30px;
@@ -909,6 +918,151 @@ div{
     color: #ff4040;
     margin-top:10px; 
 }
+/* 商品展示 */
+.goodsShow{
+    width: 1228px;
+    /* height: 500px; */
+    overflow: hidden;
+    /* background-color: skyblue; */
+    margin: 20px auto;
+}
+.goodsShow img{
+    display: block;
+}
+.goods_title{
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.goods_title a{
+    color: #645144;
+    font-weight: 700;
+}
+.goodsBox{
+    float: left;
+    overflow: hidden;
+}
+.proTitle img{
+    display: block;
+    width: 316px;
+    height: 450px;
+}
+.imp_left{
+    float: left;
+    width: 408px;
+    height: 450px;
+    overflow: hidden;
+    background-color: #1b1732;
+}
+.imp_right{
+    float: left;
+    width: 203px;
+    height: 450px;
+    overflow: hidden;
+    background-color: #1b1732;
+    padding-right:4px; 
+}
+.proShow{
+    display: block;
+    float:left;
+    width: 182px;
+    height: 200px;
+    padding: 20px 0 0 20px;
+    position: relative;
+    background-color: #fff;
+    margin: 1px;
+}
+.proShow img{
+    display: block;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s;
+}
+.proShow img:hover{
+    right: 5px;
+}
+.specialShow{
+    display: block;
+    width: 406px;
+    margin: 4px 1px 1px 1px;
+}
+.f3{
+    margin-top: 4px;
+}
+.specialShow img{
+    width: 406px;
+    height: 220px;
+}
+.f1{
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+}
+.f2{
+    font-size: 14px;
+    line-height: 24px;
+    color: #666;
+}
+.goodsRight{
+    width: 297px;
+    overflow: hidden;
+}
+.goodsRight li{
+    float: left;
+}
+.reg{
+    display: block;
+    width: 136px;
+    height: 136px;
+    padding: 12px 0 0 12px;
+    position: relative;
+}
+.reg img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s;
+}
+.reg img:hover{
+    right: 5px;
+}
+.k1{
+    background-color: #ffe6ee;
+}
+.k2{
+    background-color: #e9fbf0;
+}
+.k3{
+    background: #fff3e4;
+}
+.k4{
+    background-color: #f0f8ff;
+}
+.reg p{
+    font-size: 14px;
+    line-height: 24px;
+}
+.p2{
+    color: #757575;
+}
+.p1{
+    color:#f06291; 
+}
+.p3{
+    color: #54a472;
+}
+.p4{
+    color: #ee9832;
+}
+.p5{
+    color: #468bcb;
+}
+
 .foot{
     width: 1228px;
     overflow: hidden;

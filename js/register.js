@@ -12,7 +12,7 @@ function addEvent(){
         }
     }
     
-    //用户民  4~16   字母  数字  汉子
+    //用户名  4~16   字母  数字  汉子
     $("#username").onkeyup=function(){
         let pattern=/[\！\!\@\b\r\#\$\%\^\&\*\(\)\=\+\<\>\?]/g
         var txt=$('#username').value;
@@ -44,7 +44,7 @@ function addEvent(){
         var txt=$('#userpass').value;
         if(txt.length<6){
             $('#passtxt').innerHTML='密码至少6位以上';
-            $('#nametxt').style.color='red';
+            $('#passtxt').style.color='red';
             }else if(pattern.test(txt)&&f.test(txt)&&s.test(txt)){
                 $('#passtxt').innerHTML='√';
                 $('#passtxt').style.color='green';
@@ -68,6 +68,22 @@ function addEvent(){
 }
 
 function ajax(){
+    $('#username').onblur=function(){
+        let xhr=new XMLHttpRequest();
+        xhr.open('get','php/userSelect.php?username='+this.value,true);
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                let str=xhr.responseText;
+                if(str=='0'){
+                    // alert('用户名已注册')
+                    $('#nametxt').innerHTML='用户名已注册！';
+                    $('#nametxt').style.color='red';
+                }
+            }
+        }
+        xhr.send();
+    }
+
     $('#form_btn').onclick=function(){
         //创建对象
         let xhr=new XMLHttpRequest();
@@ -76,24 +92,21 @@ function ajax(){
         //设置回调函数
         xhr.onreadystatechange=function(){
             if(xhr.readyState==4&&xhr.status==200){
-                //接受响应
                 let str=xhr.responseText;
                 if(str=='1'){
-                    alert('注册成功！');
-                }else if(str=='0'){
-                    alert('注册失败，服务器出错！');
+                    // alert('注册成功');
+                    location.href='index.html';
                 }else{
-                    alert('用户名已存在');
+                    alert('注册失败');
                 }
             }
         }
-        xhr.setRequestHeader("Content-type","applicantion/x-www-form-urlencode");
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         //发送请求
         let str="username="+$('#username').value+"&userpass="+$('#userpass').value+"&userphone="+$('#userphone').value;
         xhr.send(str);
     }
 }
-
 
 window.onload=function(){
     addEvent();
