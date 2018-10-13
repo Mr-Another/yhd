@@ -1,0 +1,181 @@
+.ranklist{
+    overflow: hidden;
+    background-color: #ededed;
+    .rank_title{
+        width: 100%;
+        text-align: center;
+        padding: 33px 0 20px;;
+        .nav{
+            display: inline-block;
+            font-size: 20px;
+            line-height: 34px;
+            margin: 0 60px;
+            color: #333;
+            font-weight: bolder;
+            &:hover{
+                color: #ed514c;
+            }
+        }
+        a:nth-child(1){
+            color: #ed514c;
+            border-bottom: 2px solid #ed514c;
+        }
+    }
+}
+.rank_content{
+    width: 1228px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #fff;
+    .rank_box{
+        float: left;
+        border: 1px solid #e6e6e6;
+        transition: all 0.5s;
+        img{
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+        &:hover{
+            box-shadow: 0 0 40px #ddd inset;
+        }
+    }
+    .rank_box_a{
+        width:320px;
+        height:425px;
+        padding: 25px 25px 0 25px;
+        .pic_a{
+            display: block;
+            width: 328px;
+            height: 328px;
+            margin-bottom: 10px;
+        }
+        .bottom_box{
+            position: relative;
+        
+            .p1{
+                white-space: nowrap;
+            }
+            .btn_a{
+                display: block;
+                font-size: 12px;
+                line-height: 26px;
+                background-color: #fe7762;
+                color: #fff;
+                border-radius: 15px;
+                padding: 2px 10px;
+                position: absolute;
+                right: 0;
+                top: 34px;
+            }
+        }
+    }
+    .rank_box_b{
+        padding: 25px 30px 0 30px;
+        width: 366px;
+        height: 199px;
+        .pic_b{
+            display: block;
+            width: 171px;
+            height: 171px;
+            float: right;
+        }
+        .infobox{
+            width: 185px;
+            float: left;
+            .btn_b{
+                margin-top: 20px;
+            }
+        }
+    }
+    .rank_box_c{
+        width: 194.6px;
+        height: 362px;
+        padding: 25px 25px 0 25px;
+        margin-left: -1px;
+        .pic_c{
+            display: block;
+            width: 194px;
+            height: 194px;
+        }
+        .thisBox{
+            text-align: center;
+            .p1{
+                height: 48px;
+                overflow: hidden;
+            }
+            p{
+                margin-top: 10px;
+            }
+            .btn_c{
+                margin: 10px auto 0;
+            }
+        }
+    }
+}
+.p1{
+    a{
+        font-size: 14px;
+        line-height: 24px;
+        color: #666;
+    }
+}
+.p2{
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 5px;
+    .s1{
+        display: inline-block;
+        color: #fff;
+        padding: 0 5px;
+        background-color: #ed514c;
+        border-radius: 2px;
+    }
+    .s2{
+        display: inline-block;
+        color: #ed514c;
+        em{
+            font-size: 18px;
+            font-family: 'Century Gothic';
+            font-weight: 800;
+        }
+    }
+    .s3{
+        display: inline-block;
+        font-size: 12px;
+        color: #ff5c4d;
+        background-color: #fff8f8;
+        border:1px solid #ff5c4d;
+        padding: 0 5px;
+        margin-left: 5px;
+        border-radius:2px; 
+    }
+}
+.p3{
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #999;
+}
+.btn{
+    display: block;
+    width: 68px;
+    font-size: 12px;
+    line-height: 26px;
+    background-color: #fe7762;
+    color: #fff;
+    border-radius: 15px;
+    padding: 2px 10px;
+}
+.hide_btn{
+    display: block;
+    width: 128px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 5px 10px;
+    margin: 20px auto;
+    color: #666;
+    background-color: #dbdbdb;
+    border-radius: 25px;
+}
