@@ -87,6 +87,164 @@ div{
     visibility: hidden;
 }
 
+.hd_father{
+    width: 100%;
+    background-color: #fff;
+}
+.hd{
+    width: 1228px;
+    height: 146px;
+    margin: 0 auto;
+}
+.logo{
+    float: left;
+}
+.logo img{
+    border: none;
+    vertical-align: top;
+}
+.hd_right{
+    float: right;
+    width: 937px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+.medbox{
+    width: 100%;
+    overflow: hidden;
+}
+.medbox::after{
+    display:block;
+    content: "";
+    height: 0;
+    visibility: hidden;
+}
+.med_search{
+    float: left;
+}
+.ipt{
+    width: 741px;
+    height: 36px;
+    /* padding-left:20px;  */
+    border: 2px solid #ff4040;
+}
+.search{
+    float: left;
+    width:685px ;
+    height: 36px;
+    border: none;
+    outline: none;
+    text-indent: 20px;
+}
+.btn_search{
+    float: left;
+    width: 56px;
+    height: 36px;
+    border: none;
+    background-color: #ff4040;
+    text-align: center;
+    line-height: 36px;
+}
+.btn_search i{
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+.hot_search{
+    height: 36px;
+    line-height: 36px;
+}
+.hot_search a{
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 5px;
+    color: #666;
+}
+.hot_search a:hover{
+    color:#ff4040;
+}
+.cart{
+    width: 130px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    float: right;
+    border:1px solid #d7d7d7;
+    margin-right: 10px;
+}
+.cart a{
+    color: #666;
+}
+.cart a span{
+    padding-left: 10px;
+    font-size: 16px;
+}
+.cart .icon-gouwuche{
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: bottom;
+}
+.smallbox a{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 5px;
+    color: #333;
+}
+.smallbox a:hover{
+    color:#ff4040;
+}
+
+.wside{
+    width: 34px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20000;
+}
+.wside::after{
+    content:"";
+	clear: both;
+	overflow: hidden;
+	visibility: hidden;
+	height: 0;
+}
+.wside img{
+    display: block;
+}
+.wside_box{
+    width: 34px;
+    height: 100%;
+    background-color: #303030;
+}
+.mmz{
+    /* position: absolute; */
+    width: 34px;
+}
+.wside_box a{
+    display: block;
+    width: 34px;
+    position: relative;
+    text-align: center;
+    line-height: 34px;
+    font-size: 18px;
+    color: #fff;
+}
+.wside_box a .iconfont{
+    color: #fff;
+    font-size: 24px;
+    vertical-align: middle;
+}
+.wside_box a:nth-child(2){
+    background-color: #454545;
+    padding: 5px 0;
+}
+.wside_box a:hover{
+    background-color: #ff5c4d;
+}
+
+
 .foot_bg{
     background-color: #fff;
 }
