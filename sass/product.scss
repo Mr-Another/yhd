@@ -48,6 +48,7 @@
     background-color: #fff;
     position: relative;
     border-top: 2px solid #ff4040;
+    padding-bottom: 20px;
 }
 .content{
     width: 1200px;
@@ -215,6 +216,8 @@
         .last{
             overflow: hidden;
             margin-top: 20px;
+            border-bottom:1px dashed #ccc;
+            padding-bottom: 30px;
             dt{
                 float: left;
                 margin-right: 20px;
@@ -252,6 +255,9 @@
                             outline: none;
                             border: none;
                             float: left;
+                            text-align: center;
+                            font-weight: 700;
+                            font-size: 18px;
                         }
                         .nm{
                             float: left;
@@ -261,6 +267,11 @@
                                 height: 23px;
                                 // background-color: #000;
                                 border-left:1px solid #ccc;
+                                img{
+                                    display: block;
+                                    width: 21px;;
+                                    height: 23px;
+                                }
                             }
                             a:nth-child(1){
                                 border-bottom: 1px solid #ccc;
@@ -283,7 +294,17 @@
                             background-color: #c00;
                         }
                     }
-                }
+                }  
+            } 
+        }
+        .sale{
+            font-size: 12px;
+            text-align:left;
+            margin-top: 10px;
+            a{
+                display: inline-block;
+                margin-left: 20px;
+                color: #333;
             }
         }
     }

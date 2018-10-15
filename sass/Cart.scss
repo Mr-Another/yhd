@@ -1,0 +1,83 @@
+.myGoods{
+    width: 1200px;
+    height: 200px;
+    background-color:skyblue;
+    margin: 0 auto;
+}
+.record{
+    width: 1200px;
+    margin: 30px auto 0;
+    h4{
+        height:40px;
+        text-align: center;
+        color: #ff9841;
+        font-size: 16px;
+        line-height: 40px;
+    }
+    p{
+        text-align: center;
+        font-size: 12px;
+        color: #999;
+        line-height: 12px;
+        padding-bottom: 15px;
+    }
+    .list{
+        width: 1040px;
+        padding: 30px 80px;
+        position: relative;
+        background-color: #fff;
+        overflow: hidden;
+        .move_btn1{
+            position: absolute;
+            left: 30px;
+            top: 250px;
+        }
+        .move_btn2{
+            position: absolute;
+            right: 30px;
+            top: 250px;
+        }
+        .bth{
+            width: 1040px;
+            overflow: hidden;
+            ul{
+                position: relative;
+                overflow: hidden;
+                width: 4160px;
+                li{
+                    width: 150px;
+                    padding:0 29px;
+                    float: left;
+                    .pro{
+                        width: 150px;
+                        img{
+                            display: block;
+                            width:150px ;
+                            height: 150px;
+                        }
+                        h3{
+                            font-size: 14px;
+                            color: #f60;
+                            text-align: center;
+                            margin: 15px 0;
+                        }
+                        p{
+                            height: 22px;
+                            width: 150px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-align: center;
+                            a{
+                                color: #333;
+                                &:hover{
+                                    color:#f60;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }   
+        }
+    }
+}

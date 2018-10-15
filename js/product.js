@@ -55,6 +55,14 @@ function loupe(){
         $('.shot')[0].style.top=top1+'px';
         $('.show')[0].style.backgroundPosition = -1*left1 + 'px  ' + -1*top1 + 'px';
     }
+
+    for(let i =0;i<$('.pic').length;i++){
+        $('.pic')[i].onmouseenter=function(){
+            let showImg=getStyle(this,'backgroundImage');
+            $('.mag')[0].style.backgroundImage=showImg;
+            $('.show')[0].style.backgroundImage=showImg;
+        }
+    }
 }
 
 window.onload=function(){
