@@ -189,10 +189,42 @@ class Slider{
     }
 }
 
+function hotGoods(){
+    let lis=$('.slide_ull')[0].children;
+    console.log(lis);
+    let step=lis[0].offsetWidth*4;
+    console.info(step);
+    let nowPic=0;
+    function now(){
+        if(nowPic==0){
+            sport($('.slide_ull')[0],{left:0});
+        }else if(nowPic==3){
+            sport($('.slide_ull')[0],{left:-1*step*3});
+        }else{
+            sport($('.slide_ull')[0],{left:-1*nowPic*step})
+        }
+    }
+    $('.btn_demo_items1')[0].onclick=function(){
+        nowPic++;
+        if(nowPic>3){
+            nowPic=3;
+        }
+        now();
+    }
+    $('.btn_demo_items2')[0].onclick=function(){
+        nowPic--;
+        if(nowPic<0){
+            nowPic=0;
+        }
+        now();
+    }
+}
+
 window.onload=function(){
     addEvent();
     close();
     goTop();
     hideSearch();
+    hotGoods();
     let slider1 =new Slider($('#slide_box'),1023,400,["img/l1.jpg","img/l2.jpg","img/l3.jpg","img/l4.jpg","img/l5.jpg","img/l6.jpg","img/l7.jpg"],10,'#f5ecd9','#f17258',true,-1,3000);
 }

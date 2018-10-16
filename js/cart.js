@@ -11,7 +11,7 @@ function like(){
             sport($('#uls'),{left:-1*nowPic*step});
         }
     }
-    $('#a2').onclick=function(){
+    $('#a1').onclick=function(){
         nowPic++;
         if(nowPic>span.length-1){
             nowPic=span.length-1;
@@ -20,7 +20,7 @@ function like(){
         span[nowPic-1].className='';
         now();
     }
-    $('#a1').onclick=function(){
+    $('#a2').onclick=function(){
         nowPic--;
         if(nowPic<0){
             nowPic=0;

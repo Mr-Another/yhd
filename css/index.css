@@ -338,7 +338,45 @@
     float: left;
 }
 .list_warp{
+    width: 1020px;
+    overflow: hidden;
     float: left;
+    position: relative;
+}
+.list_warp:hover .btn_demo_items{    
+    opacity: 1;
+} 
+.btn_demo_items .iconfont{
+    font-size: 20px;
+    color: #666;
+    line-height: 40px;
+}
+.btn_demo_items .iconfont:hover{
+    color: #333;
+}
+.btn_demo_items{
+    width: 20px;
+    height: 40px;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1s;
+}
+.btn_demo_items1{
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+.btn_demo_items2{
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+.list_warp ul{
+    overflow: hidden;
+    width: 4080px;
+    background-color: red;
+    position: relative;
+    z-index: 0;
 }
 .pro_address{
     display:block;
