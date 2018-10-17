@@ -70,7 +70,7 @@
         <div class="param">
             <div class="param_top">
                 <span>
-                    <input type="checkbox">
+                    <input id="top_check" type="checkbox" class="checkall" disabled>
                     全选
                 </span>
                 <span>
@@ -82,7 +82,7 @@
                 <span>操作</span>
             </div>
             <div class="goods_content">
-                <ul>
+                <ul id="list_ul">
                     <li>
                         <input class="check" type="checkbox">
                         <a class="show" href="javascript:0;">
@@ -91,11 +91,11 @@
                         <a class="pro_title" href="javascript:0;">
                             华为 HUAWEI Mate 10 6GB+128GB 亮黑色 移动联通电信4G手机 双卡双待 
                         </a>
-                        <p>3999.0</p>
+                        <p class="unit_price">3999.0</p>
                         <div class="mol">
-                            <a href="javascript:0">-</a>
+                            <a class="subtract" href="javascript:0">-</a>
                             <input class="pro_num" type="text" value="1">
-                            <a href="javascript:0">+</a>
+                            <a class="plus" href="javascript:0">+</a>
                         </div>
                         <p class="add">3999.0</p>
                         <a href="javascript:0;" class="delet">
@@ -110,11 +110,11 @@
                         <a class="pro_title" href="javascript:0;">
                             华为 HUAWEI Mate 10 6GB+128GB 亮黑色 移动联通电信4G手机 双卡双待 
                         </a>
-                        <p>3999.0</p>
+                        <p class="unit_price">58.90</p>
                         <div class="mol">
-                            <a href="javascript:0">-</a>
+                            <a class="subtract" href="javascript:0">-</a>
                             <input class="pro_num" type="text" value="1">
-                            <a href="javascript:0">+</a>
+                            <a class="plus" href="javascript:0">+</a>
                         </div>
                         <p class="add">3999.0</p>
                         <a href="javascript:0;" class="delet">
@@ -122,18 +122,18 @@
                         </a>
                     </li>
                     <li>
-                        <input class="check" type="checkbox">
+                        <input class="check" type="checkbox" checked>
                         <a class="show" href="javascript:0;">
                             <img src="img/pic3.jpg" alt="">
                         </a>
                         <a class="pro_title" href="javascript:0;">
                             华为 HUAWEI Mate 10 6GB+128GB 亮黑色 移动联通电信4G手机 双卡双待 
                         </a>
-                        <p>3999.0</p>
+                        <p class="unit_price">469.50</p>
                         <div class="mol">
-                            <a href="javascript:0">-</a>
+                            <a class="subtract" href="javascript:0">-</a>
                             <input class="pro_num" type="text" value="1">
-                            <a href="javascript:0">+</a>
+                            <a class="plus" href="javascript:0">+</a>
                         </div>
                         <p class="add">3999.0</p>
                         <a href="javascript:0;" class="delet">
@@ -141,18 +141,18 @@
                         </a>
                     </li>
                     <li>
-                        <input class="check" type="checkbox">
+                        <input class="check" type="checkbox" checked>
                         <a class="show" href="javascript:0;">
                             <img src="img/pic4.jpg" alt="">
                         </a>
                         <a class="pro_title" href="javascript:0;">
                             华为 HUAWEI Mate 10 6GB+128GB 亮黑色 移动联通电信4G手机 双卡双待 
                         </a>
-                        <p>3999.0</p>
+                        <p class="unit_price">3999.0</p>
                         <div class="mol">
-                            <a href="javascript:0">-</a>
+                            <a class="subtract" href="javascript:0">-</a>
                             <input class="pro_num" type="text" value="1">
-                            <a href="javascript:0">+</a>
+                            <a class="plus" href="javascript:0">+</a>
                         </div>
                         <p class="add">3999.0</p>
                         <a href="javascript:0;" class="delet">
@@ -161,7 +161,7 @@
                     </li>
                 </ul>
                 <h1 class="total">
-                    商品总价：<span>0</span>
+                    商品总价：<span id="total_price">0</span>
                 </h1>
             </div>
         </div>
@@ -169,20 +169,20 @@
     <div class="kc_bg">
         <div class="keep_change">
             <div class="kc_left">
-                <input type="checkbox" class="kc_check">
+                <input id="bottom_check" type="checkbox" class="kc_check checkall">
                 全选  (共
-                <b>1</b>
+                <b id="amount">1</b>
                 件)
                 <span>|</span>
                 <a href="javascript:0;">批量删除</a>
             </div>
             <div class="kc_right">
                 已选商品
-                <b>1</b>
+                <b id="selected">1</b>
                 件
                 <span>|</span>
-                合计:
-                <b>￥52.90</b>
+                合计: ￥
+                <b id="addUp"></b>
                 <a class="caa" href="javascript:0;">去结算</a>
             </div>
         </div>

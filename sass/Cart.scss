@@ -156,7 +156,7 @@
                         font-size: 14px;
                         line-height: 75px;
                         float: left;
-                        margin-right: 100px;
+                        margin-right: 80px;
                     }
                     .mol{
                         width: 80px;
@@ -169,6 +169,7 @@
                         line-height: 18px;
                         text-align: center;
                         border: 1px solid #666;
+                        background-color: #fff;
                         a{
                             display:inline-block;
                             width: 20px;
@@ -386,4 +387,8 @@
             }
         }
     }
+}
+.unit_price,.add{
+    width: 60px;
+    text-align: center;
 }
