@@ -57,15 +57,23 @@ function fn1(){//全选或不选
 
 
 
-function fn2(){//小计
+function accounting(){//计算金额
     let lis=$('#list_ul').children;   
     let sum=0; 
-    let num=0;
     for(let i=0;i<lis.length;i++){
         $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
         $('.subtract')[i].onclick=function(){
-            if($('.pro_num')[i].value<=0){
-                $('.pro_num')[i].value=0;
+            if($('.pro_num')[i].value==1){
+                if(confirm('确定移除此物品？')){
+                    lis[i].remove();
+                    fn1();
+                    accounting();
+                    count();
+                    cancel();
+                    return;
+                }else{
+                    $('.pro_num')[i].value=1;
+                }
             }else{
                 $('.pro_num')[i].value--;
             }
@@ -77,37 +85,49 @@ function fn2(){//小计
             $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
             count();
         }
-        $('.check')[i].onclick=function(){
-            if($('.check')[i].checked==true){
-                num++;
-                count();   
-            }
+        $('.check')[i].oninput=function(){
+            count();
         }
         sum+=Number($('.add')[i].innerHTML);
     }
     $('#total_price').innerHTML=sum;
-    $('#selected').innerHTML=num;
     $('#amount').innerHTML=lis.length;
 }
 
 function count(){//计数
     let adds=$('.add');
     let sum=0;
+    let num=0;
     for(let i=0;i<adds.length;i++){
         if($('.check')[i].checked==true){
             sum+=Number($('.add')[i].innerHTML);
+            num++;
         }
     }
     $('#addUp').innerHTML=sum;
+    $('#selected').innerHTML=num;
 }
 
-function delect(){
-
+function cancel(){
+    let btn=$('.delet');
+    let lis=$('#list_ul').children;   
+    for(let i=0;i<btn.length;i++){
+        btn[i].onclick=function(){
+            setTimeout(function(){
+                lis[i].remove();
+                fn1();
+                accounting();
+                count();
+                cancel();
+            },10);
+        }
+    }
 }
 
 window.onload=function(){
     fn1();
-    fn2();
+    accounting();
     count();
+    cancel();
     like();
 }

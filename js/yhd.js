@@ -45,3 +45,5 @@ function sport(obj,json,fn){
         }
     },30);
 }
+
+//设置cookie
