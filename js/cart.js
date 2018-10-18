@@ -124,10 +124,34 @@ function cancel(){
     }
 }
 
+function showUser(){
+    let username=getCookie('username');
+    if(username!=''){
+        $('#user_info').children[0].innerHTML=username+' 欢迎您!'+'  <a href="javascript:0" id="logout">退出</a>';
+        $('#logout').onclick=function(){
+        $('#user_info').children[0].innerHTML='hi,请 <a href="login.html">登录</a> <a href="register.html">注册</a>'
+        removeCookie('username');
+        }
+    }
+}
+
+function showData(data){
+    let objs=JSON.parse(data);
+    console.log(objs);
+}
+
 window.onload=function(){
     fn1();
     accounting();
     count();
     cancel();
     like();
+    showUser();
+    ajax(
+        'get',
+        'php/getShoppingCart.php',
+        'vipName=肖雨',
+        true,
+        showData
+    );
 }

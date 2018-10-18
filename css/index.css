@@ -301,6 +301,7 @@
     border: 1px solid #ff4040;
     text-align:center;
     line-height: 26px;
+    padding: 0 10px;
 }
 .lar:hover{
     background: #ff4040;

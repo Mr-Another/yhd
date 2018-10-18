@@ -220,11 +220,27 @@ function hotGoods(){
     }
 }
 
+//显示登录账户
+function showUser(){
+    let username=getCookie('username');
+    if(username!=''){
+        $('.btn_lar')[0].innerHTML=username+' 欢迎您!';
+        $('#user_info').children[0].innerHTML=username+' 欢迎您!'+'  <a href="javascript:0" id="logout">退出</a>';
+        $('#logout').onclick=function(){
+        $('#user_info').children[0].innerHTML='hi,请 <a href="login.html">登录</a> <a href="register.html">注册</a>'
+        $('.btn_lar')[0].innerHTML='<a class="lar" href="login.html">登录</a><a class="lar" href="register.html">注册</a>';
+        $('.lar')[0].style.marginRight=10+'px';
+        removeCookie('username');
+        }
+    }
+}
+
 window.onload=function(){
     addEvent();
     close();
     goTop();
     hideSearch();
     hotGoods();
+    showUser();
     let slider1 =new Slider($('#slide_box'),1023,400,["img/l1.jpg","img/l2.jpg","img/l3.jpg","img/l4.jpg","img/l5.jpg","img/l6.jpg","img/l7.jpg"],10,'#f5ecd9','#f17258',true,-1,3000);
 }

@@ -1,5 +1,6 @@
-function ajax(){
+function ajaxloging(){
     $('#form_btn').onclick=function(){
+        saveCookie('username',$('#username').value,7);
         let xhr=new XMLHttpRequest();
         xhr.open('post','php/verify.php',true);
         xhr.onreadystatechange=function(){
@@ -21,5 +22,5 @@ function ajax(){
 }
 
 window.onload=function(){
-    ajax();
+    ajaxloging();
 }

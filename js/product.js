@@ -34,10 +34,6 @@ function loupe(){
         let ev=event||window.event;
         let left1=ev.pageX-$('.mag')[0].offsetLeft-$('.shot')[0].offsetWidth/2;
         let top1=ev.pageY-$('.mag')[0].offsetTop-$('.shot')[0].offsetHeight/2-88-90;
-        console.info(ev.pageY);
-        console.info($('.mag')[0].offsetTop);
-        console.info($('.shot')[0].offsetHeight);
-        console.info(top1);
 
         if(left1<0){
             left1=0;
@@ -65,8 +61,32 @@ function loupe(){
     }
 }
 
+function showUser(){
+    let username=getCookie('username');
+    if(username!=''){
+        $('#user_info').children[0].innerHTML=username+' 欢迎您!'+'  <a href="javascript:0" id="logout">退出</a>';
+        $('#logout').onclick=function(){
+        $('#user_info').children[0].innerHTML='hi,请 <a href="login.html">登录</a> <a href="register.html">注册</a>'
+        removeCookie('username');
+        }
+    }
+}
+
+function showData(data){
+    let objs=JSON.parse(data);
+    console.info(objs);
+}
+
 window.onload=function(){
     addEvent();
     goTop();
     loupe();
+    showUser();
+    ajax(
+        'get',
+        'php/getGoodsInfo.php',
+        'goodsId=00001',
+        true,
+        showData
+    );
 }

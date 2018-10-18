@@ -46,4 +46,29 @@ function sport(obj,json,fn){
     },30);
 }
 
-//设置cookie
+function  getHttpRequest(){
+    if (window.ActiveXObject){
+        return new ActiveXObject("Microsoft.XMLHttp");
+    }else{
+        return new XMLHttpRequest();
+    } 
+}
+function ajax(method,url,param,isAsync,fn){
+    let xhr=getHttpRequest();
+    if(method.toLowerCase()=='get'){
+        xhr.open(method,url+"?"+param,isAsync);
+    }else{
+        xhr.open(method,url,isAsync);
+    }
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4&&xhr.status==200){
+            fn&&fn(xhr.responseText);
+        }
+    }
+    if(method.toLowerCase()=="get"){
+        xhr.send();
+    }else if(method.toLowerCase()=="post"){
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(param);
+    }
+}

@@ -67,7 +67,7 @@ function addEvent(){
     }
 }
 
-function ajax(){
+function ajaxreg(){
     $('#username').onblur=function(){
         let xhr=new XMLHttpRequest();
         xhr.open('get','php/userSelect.php?username='+this.value,true);
@@ -110,5 +110,5 @@ function ajax(){
 
 window.onload=function(){
     addEvent();
-    ajax();
+    ajaxreg();
 }
