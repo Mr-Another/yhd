@@ -1,17 +1,18 @@
 function like(){
     let span=$('.peas')[0].children;
-    let step=5*$('#lis').offsetWidth;
+    let lis=$('#uls').children;
+    let step=5*lis[0].offsetWidth;
     let nowPic=0;
     function now(){
         if(nowPic==0){
             sport($('#uls'),{left:0});
-        }else if(nowPic==3){
-            sport($('#uls'),{left:-3120});
+        }else if(nowPic==(lis.length/5)-1){
+            sport($('#uls'),{left:-1040*((lis.length/5)-1)});
         }else{
             sport($('#uls'),{left:-1*nowPic*step});
         }
     }
-    $('#a1').onclick=function(){
+    $('#a2').onclick=function(){
         nowPic++;
         if(nowPic>span.length-1){
             nowPic=span.length-1;
@@ -20,7 +21,7 @@ function like(){
         span[nowPic-1].className='';
         now();
     }
-    $('#a2').onclick=function(){
+    $('#a1').onclick=function(){
         nowPic--;
         if(nowPic<0){
             nowPic=0;
@@ -38,24 +39,38 @@ function like(){
     }
 }
 
-function fn1(){//全选或不选
-    $('#bottom_check').oninput=function(){
-            if($('.checkall')[1].checked==true){
-                for(let i=0;i<$('.check').length;i++){
-                    if($('.check')[i].checked==false){
-                        $('.check')[i].checked=true;
+function fn1(){
+    $('#bottom_check').onclick=function(){
+            if($('#bottom_check').checked==true){
+                for(let i=0;i<$('.onbtn').length;i++){
+                    if($('.onbtn')[i].checked==false){
+                        $('.onbtn')[i].checked=true;
                     }
                 }
             }else{
-                for(let i=0;i<$('.check').length;i++){
-                    $('.check')[i].checked=false;
+                for(let i=0;i<$('.onbtn').length;i++){
+                    $('.onbtn')[i].checked=false;
             }
         }
         count();
+        cancel();
+    }
+    $('#top_check').onclick=function(){
+        if($('#top_check').checked==true){
+            for(let i=0;i<$('.onbtn').length;i++){
+                if($('.onbtn')[i].checked==false){
+                    $('.onbtn')[i].checked=true;
+                }
+            }
+        }else{
+            for(let i=0;i<$('.onbtn').length;i++){
+                $('.onbtn')[i].checked=false;
+            }
+        }
+    count();
+    cancel();
     }
 }
-
-
 
 function accounting(){//计算金额
     let lis=$('#list_ul').children;   
@@ -63,14 +78,16 @@ function accounting(){//计算金额
     for(let i=0;i<lis.length;i++){
         $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
         $('.subtract')[i].onclick=function(){
-            if($('.pro_num')[i].value==1){
+            if($('.pro_num')[i].value<2){
                 if(confirm('确定移除此物品？')){
-                    lis[i].remove();
-                    fn1();
-                    accounting();
-                    count();
-                    cancel();
-                    return;
+                    sport(lis[i],{left:1140});
+                    setTimeout(function(){
+                        lis[i].remove();
+                        fn1();
+                        accounting();
+                        count();
+                        cancel();
+                    },850);
                 }else{
                     $('.pro_num')[i].value=1;
                 }
@@ -79,6 +96,7 @@ function accounting(){//计算金额
             }
             $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
             count();
+            cancel();
         }
         $('.plus')[i].onclick=function(){
             $('.pro_num')[i].value++;
@@ -87,8 +105,15 @@ function accounting(){//计算金额
         }
         $('.check')[i].oninput=function(){
             count();
+            cancel();
         }
         sum+=Number($('.add')[i].innerHTML);
+        $('.pro_num')[i].onblur=function(){
+            if(this.value<1){
+                alert('商品数量不能少于1个！');
+                this.value=1;
+            }
+        }
     }
     $('#total_price').innerHTML=sum;
     $('#amount').innerHTML=lis.length;
@@ -109,17 +134,34 @@ function count(){//计数
 }
 
 function cancel(){
+    let arr=[];
     let btn=$('.delet');
     let lis=$('#list_ul').children;   
     for(let i=0;i<btn.length;i++){
         btn[i].onclick=function(){
+            sport(lis[i],{left:1140});
             setTimeout(function(){
                 lis[i].remove();
                 fn1();
                 accounting();
                 count();
                 cancel();
-            },10);
+            },850);
+        }
+        if($('.check')[i].checked==true){
+            arr.push(lis[i]);
+        }
+    }
+    $('#batch').onclick=function(){
+        for(let j in arr){
+            sport(arr[j],{opacity:0});
+            setTimeout(() => {
+            arr[j].remove();
+            fn1();
+            accounting();
+            count();
+            cancel();
+            }, 850);
         }
     }
 }
