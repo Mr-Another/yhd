@@ -4,10 +4,17 @@
 //value：值
 //dayCount：有效期（单位是天）
 //返回值：无
+/*
 function saveCookie(key,value,dayCount){
 	var d = new Date();
 	d.setDate(d.getDate()+dayCount);
 	document.cookie = encodeURIComponent(key+"="+value)+";expires="+d.toGMTString();	
+}*/
+function saveCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	var shi = d.getTime() + exdays * 24 * 60 * 60 * 1000;
+	d.setTime(shi);
+	document.cookie = cname + '=' + cvalue + ';expires=' + d.toGMTString();
 }
 
 

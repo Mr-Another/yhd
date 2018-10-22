@@ -76,31 +76,20 @@ function accounting(){//计算金额
     let lis=$('#list_ul').children;   
     let sum=0; 
     for(let i=0;i<lis.length;i++){
-        $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
+        $('.add')[i].innerHTML=($('.pro_num')[i].value*$('.unit_price')[i].innerHTML).toFixed(2);
         $('.subtract')[i].onclick=function(){
             if($('.pro_num')[i].value<2){
-                if(confirm('确定移除此物品？')){
-                    sport(lis[i],{left:1140});
-                    setTimeout(function(){
-                        lis[i].remove();
-                        fn1();
-                        accounting();
-                        count();
-                        cancel();
-                    },850);
-                }else{
-                    $('.pro_num')[i].value=1;
-                }
+                $('.pro_num')[i].value=1;
             }else{
                 $('.pro_num')[i].value--;
             }
-            $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
+            $('.add')[i].innerHTML=($('.pro_num')[i].value*$('.unit_price')[i].innerHTML).toFixed(2);
             count();
             cancel();
         }
         $('.plus')[i].onclick=function(){
             $('.pro_num')[i].value++;
-            $('.add')[i].innerHTML=$('.pro_num')[i].value*$('.unit_price')[i].innerHTML;
+            $('.add')[i].innerHTML=($('.pro_num')[i].value*$('.unit_price')[i].innerHTML).toFixed(2);
             count();
         }
         $('.check')[i].oninput=function(){
@@ -115,7 +104,7 @@ function accounting(){//计算金额
             }
         }
     }
-    $('#total_price').innerHTML=sum;
+    $('#total_price').innerHTML=sum.toFixed(2);
     $('#amount').innerHTML=lis.length;
 }
 
@@ -129,7 +118,7 @@ function count(){//计数
             num++;
         }
     }
-    $('#addUp').innerHTML=sum;
+    $('#addUp').innerHTML=sum.toFixed(2);
     $('#selected').innerHTML=num;
 }
 
@@ -140,13 +129,27 @@ function cancel(){
     for(let i=0;i<btn.length;i++){
         btn[i].onclick=function(){
             sport(lis[i],{left:1140});
-            setTimeout(function(){
+            let Timer=setTimeout(function(){
                 lis[i].remove();
                 fn1();
                 accounting();
                 count();
                 cancel();
+                clearInterval(Timer);
             },850);
+            ajax(
+                'get',
+                'php/deleteGoods.php',
+                'vipName='+getCookie('username')+'&goodsId='+this.id,
+                true,
+                function(str){
+                    if(str=='1'){
+                        alert('删除成功!');
+                    }else if(str=='0'){
+                        alert('删除失败!');
+                    }
+                }
+            );
         }
         if($('.check')[i].checked==true){
             arr.push(lis[i]);
@@ -155,8 +158,9 @@ function cancel(){
     $('#batch').onclick=function(){
         for(let j in arr){
             sport(arr[j],{opacity:0});
-            setTimeout(() => {
+            let Timer=setTimeout(() => {
             arr[j].remove();
+            clearInterval(Timer);
             fn1();
             accounting();
             count();
@@ -171,28 +175,40 @@ function showUser(){
     if(username!=''){
         $('#user_info').children[0].innerHTML=username+' 欢迎您!'+'  <a href="javascript:0" id="logout">退出</a>';
         $('#logout').onclick=function(){
-        $('#user_info').children[0].innerHTML='hi,请 <a href="login.html">登录</a> <a href="register.html">注册</a>'
-        removeCookie('username');
+            $('#user_info').children[0].innerHTML='hi,请 <a href="login.html">登录</a> <a href="register.html">注册</a>'
+            removeCookie('username');
         }
     }
 }
 
 function showData(data){
     let objs=JSON.parse(data);
+    let str='';
+    let str1='';
     console.log(objs);
-}
-
-window.onload=function(){
+    console.log(getCookie('username'));
+    for(let i=0;i<objs.length;i++){
+        str1='<li name="'+objs[i].goodsId+'"><input class="check onbtn" type="checkbox"><a class="show" href="javascript:0;"><img src="'+objs[i].goodsImg+'" alt=""></a><a class="pro_title" href="javascript:0;">'+objs[i].goodsName+'</a><p class="unit_price">'+(objs[i].goodsPrice*objs[i].beiyong1).toFixed(2)+'</p><div class="mol"><a class="subtract" href="javascript:0">-</a><input class="pro_num" type="text" value="'+objs[i].goodsCount+'"><a class="plus" href="javascript:0">+</a></div><p class="add"></p><a href="javascript:0;" class="delet clear" id="'+objs[i].goodsId+'"><img src="img/deleteIcon.png" alt=""></a></li>';
+        str+=str1;
+    }
+    $('#list_ul').innerHTML=str;
     fn1();
     accounting();
     count();
     cancel();
+}
+
+function removeCarGoods(){
+    
+}
+
+window.onload=function(){
     like();
     showUser();
     ajax(
         'get',
         'php/getShoppingCart.php',
-        'vipName=肖雨',
+        'vipName='+getCookie('username'),
         true,
         showData
     );
